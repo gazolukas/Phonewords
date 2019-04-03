@@ -1,0 +1,38 @@
+{
+    "extends": [
+        "airbnb",
+        "prettier",
+        "plugin:jest/recommended"
+    ],
+    "parser": "babel-eslint",
+    "plugins": [
+        "prettier",
+        "jest"
+    ],
+    "rules": {
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error",
+        "prettier/prettier": "error",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".ts",
+                    ".tsx",
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ]
+    },
+    "env": {
+        "browser": true,
+        "jest/globals": true
+    },
+    "globals": {
+        "fetch": true
+    }
+}
