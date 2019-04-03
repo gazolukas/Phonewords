@@ -8,3 +8,4 @@
 - run `npm run dev` for developer mode
 - run `npm run prod` for production mode
 - run `npm run test` for test
+- run the app at `http://localhost:3000`
