@@ -1,15 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Button from '@kiwicom/orbit-components/lib/Button';
-import { css, withStyles, withStylesPropTypes } from '../theme/withStyles';
+import { css, withStyles } from '../theme/withStyles';
 
-const propTypes = {
-  ...withStylesPropTypes,
-  handleClear: PropTypes.func.isRequired,
+interface WithStylesProps {
+  css(...styles: any[]): any;
+  styles: any;
+}
+
+type Props = {
+  handleClear: (...args: any[]) => any;
 };
 
-function KeyboardRemove({ styles, handleClear }) {
+function KeyboardRemove({ styles, handleClear }: Props & WithStylesProps) {
   return (
     <div {...css(styles.wrapper)}>
       <Button onClick={handleClear} block circled type="secondary" size="large">
@@ -18,8 +21,6 @@ function KeyboardRemove({ styles, handleClear }) {
     </div>
   );
 }
-
-KeyboardRemove.propTypes = propTypes;
 
 export default withStyles(() => ({
   wrapper: {

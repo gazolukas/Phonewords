@@ -1,14 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import InputField from '@kiwicom/orbit-components/lib/InputField';
 
-const propTypes = {
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+type Props = {
+  value: string;
+  handleChange: (...args: any[]) => any;
 };
 
-function Input({ value, handleChange }) {
+function Input({ value, handleChange }: Props) {
   return (
     <InputField
       type="number"
@@ -21,7 +20,5 @@ function Input({ value, handleChange }) {
     />
   );
 }
-
-Input.propTypes = propTypes;
 
 export default Input;
