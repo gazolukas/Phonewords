@@ -30,7 +30,6 @@
     "aphrodite": "^2.2.3",
     "babel-eslint": "^10.0.1",
     "babel-minify-webpack-plugin": "^0.3.1",
-    "core-js": "^2.6.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.5.0",
