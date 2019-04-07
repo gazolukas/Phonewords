@@ -1,16 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import KeyboardNumber from './KeyboardNumber';
 import BUTTONS from '../constants/keyboard';
-import { css, withStyles, withStylesPropTypes } from '../theme/withStyles';
+import { css, withStyles } from '../theme/withStyles';
 
-const propTypes = {
-  ...withStylesPropTypes,
-  handleClick: PropTypes.func.isRequired,
+interface WithStylesProps {
+  css(...styles: any[]): any;
+  styles: any;
+}
+
+type Props = {
+  handleClick: (...args: any[]) => any;
 };
 
-function Keyboard({ styles, handleClick }) {
+function Keyboard({ styles, handleClick }: Props & WithStylesProps) {
   return (
     <div {...css(styles.wrapper)}>
       {BUTTONS.map((NUM) => (
@@ -26,8 +29,6 @@ function Keyboard({ styles, handleClick }) {
     </div>
   );
 }
-
-Keyboard.propTypes = propTypes;
 
 export default withStyles(() => ({
   wrapper: {

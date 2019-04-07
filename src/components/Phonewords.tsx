@@ -1,19 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Alert from '@kiwicom/orbit-components/lib/Alert';
-import { css, withStyles, withStylesPropTypes } from '../theme/withStyles';
+import { css, withStyles } from '../theme/withStyles';
 
-const propTypes = {
-  ...withStylesPropTypes,
-  phonewords: PropTypes.arrayOf(PropTypes.node).isRequired,
+interface WithStylesProps {
+  css(...styles: any[]): any;
+  styles: any;
+}
+
+type Props = {
+  phonewords: string[];
 };
 
-function Phonewords({ styles, phonewords }) {
+function Phonewords({ styles, phonewords }: Props & WithStylesProps) {
   return (
     <div {...css(styles.outerWrapper)}>
       <Alert title="Phonewords">
-        {phonewords.map((word) => (
+        {phonewords.map((word: String) => (
           <div {...css(styles.innerWrapper)} key={word}>
             {word}
           </div>
@@ -22,8 +25,6 @@ function Phonewords({ styles, phonewords }) {
     </div>
   );
 }
-
-Phonewords.propTypes = propTypes;
 
 export default withStyles(() => ({
   outerWrapper: {

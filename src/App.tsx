@@ -1,46 +1,46 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Input from './components/Input';
 import Keyboard from './components/Keyboard';
 import KeyboardRemove from './components/KeyboardRemove';
 import Phonewords from './components/Phonewords';
 
-import { css, withStyles, withStylesPropTypes } from './theme/withStyles';
+import { css, withStyles } from './theme/withStyles';
 
-const propTypes = {
-  ...withStylesPropTypes,
+interface WithStylesProps {
+  css(...styles: any[]): any;
+  styles: any;
+}
+
+type State = {
+  numbers: string;
+  phonewords: string[];
+  error: boolean;
 };
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      numbers: '',
-      phonewords: [],
-      error: false,
-    };
+class App extends React.Component<State & WithStylesProps> {
+  state = {
+    numbers: '',
+    phonewords: [],
+    error: false,
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClear = this.handleClear.bind(this);
-    this.fetchPhonewords = this.fetchPhonewords.bind(this);
-  }
-
-  handleChange(numbers) {
+  handleChange = (numbers: State) => {
     this.setState({ numbers }, this.fetchPhonewords);
-  }
+  };
 
-  handleClick(number) {
+  handleClick = (number: number) => {
     const { numbers } = this.state;
+    if (isNaN(number)) return;
     this.setState({ numbers: numbers + number }, this.fetchPhonewords);
-  }
+  };
 
-  handleClear() {
+  handleClear = () => {
     this.setState({
       numbers: '',
       phonewords: [],
     });
-  }
+  };
 
   async fetchPhonewords() {
     const { numbers } = this.state;
@@ -74,8 +74,6 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = propTypes;
 
 export default withStyles(() => ({
   wrapper: {
