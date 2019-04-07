@@ -1,13 +1,16 @@
 {
     "extends": [
         "airbnb",
+        "plugin:@typescript-eslint/recommended",
         "prettier",
+        "prettier/@typescript-eslint",
         "plugin:jest/recommended"
     ],
-    "parser": "babel-eslint",
+    "parser": "babel-eslint, @typescript-eslint/parser",
     "plugins": [
         "prettier",
-        "jest"
+        "jest",
+        "@typescript-eslint"
     ],
     "rules": {
         "jest/no-disabled-tests": "warn",

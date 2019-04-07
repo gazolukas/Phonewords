@@ -1,17 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Button from '@kiwicom/orbit-components/lib/Button';
-import { css, withStyles, withStylesPropTypes } from '../theme/withStyles';
+import { css, withStyles } from '../theme/withStyles';
 
-const propTypes = {
-  ...withStylesPropTypes,
-  number: PropTypes.string.isRequired,
-  letters: PropTypes.string.isRequired,
-  handleClick: PropTypes.func.isRequired,
+interface WithStylesProps {
+  css(...styles: any[]): any;
+  styles: any;
+}
+
+type Props = {
+  number: number;
+  letters: string;
+  handleClick: (...args: any[]) => any;
 };
 
-function KeyboardNumber({ styles, number, letters, handleClick }) {
+function KeyboardNumber({ styles, number, letters, handleClick }: Props & WithStylesProps) {
   return (
     <div {...css(styles.col4)}>
       <Button onClick={handleClick} block type="secondary" size="large">
@@ -23,8 +26,6 @@ function KeyboardNumber({ styles, number, letters, handleClick }) {
     </div>
   );
 }
-
-KeyboardNumber.propTypes = propTypes;
 
 export default withStyles(() => ({
   col4: {
