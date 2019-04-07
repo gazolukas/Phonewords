@@ -4,8 +4,7 @@ import KeyboardNumber from './KeyboardNumber';
 import BUTTONS from '../constants/keyboard';
 import { css, withStyles } from '../theme/withStyles';
 
-interface WithStylesProps {
-  css(...styles: any[]): any;
+type WithStylesProps = {
   styles: any;
 }
 

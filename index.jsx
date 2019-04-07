@@ -4,7 +4,7 @@ import path from 'path';
 import { StyleSheetServer } from 'aphrodite';
 import express from 'express';
 import generatePhonewords from './src/lib/generate-phonewords';
-import App from './src/App';
+import App from './src/App.tsx';
 
 const app = express();
 const inMemoryCache = {};

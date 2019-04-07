@@ -7,8 +7,7 @@ import Phonewords from './components/Phonewords';
 
 import { css, withStyles } from './theme/withStyles';
 
-interface WithStylesProps {
-  css(...styles: any[]): any;
+type WithStylesProps = {
   styles: any;
 }
 

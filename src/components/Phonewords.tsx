@@ -3,8 +3,7 @@ import React from 'react';
 import Alert from '@kiwicom/orbit-components/lib/Alert';
 import { css, withStyles } from '../theme/withStyles';
 
-interface WithStylesProps {
-  css(...styles: any[]): any;
+type WithStylesProps = {
   styles: any;
 }
 
