@@ -32,6 +32,7 @@ class App extends Component {
 
   handleClick(number) {
     const { numbers } = this.state;
+    if (isNaN(number)) return;
     this.setState({ numbers: numbers + number }, this.fetchPhonewords);
   }
 
