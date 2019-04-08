@@ -56,6 +56,7 @@ class App extends Component {
       this.setState({ phonewords });
     } catch (e) {
       this.setState({ error: true });
+      setInterval(() => this.setState({ error: false }), 3000);
     }
   }
 
