@@ -18,6 +18,10 @@ class App extends Component {
     error: false,
   };
 
+  componentWillUpdate = () => {
+    clearInterval(this.timerID);
+  }
+        
   handleChange = (numbers) => {
     this.setState({ numbers }, this.fetchPhonewords);
   };
@@ -49,6 +53,7 @@ class App extends Component {
       this.setState({ phonewords });
     } catch (e) {
       this.setState({ error: true });
+      this.timerID = setInterval(() => this.setState({ error: false }), 3000);
     }
   }
 
