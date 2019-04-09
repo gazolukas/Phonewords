@@ -12,36 +12,28 @@ const propTypes = {
 };
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      numbers: '',
-      phonewords: [],
-      error: false,
-    };
+  state = {
+    numbers: '',
+    phonewords: [],
+    error: false,
+  };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClear = this.handleClear.bind(this);
-    this.fetchPhonewords = this.fetchPhonewords.bind(this);
-  }
-
-  handleChange(numbers) {
+  handleChange = (numbers) => {
     this.setState({ numbers }, this.fetchPhonewords);
-  }
+  };
 
-  handleClick(number) {
+  handleClick = (number) => {
     const { numbers } = this.state;
     if (isNaN(number)) return;
     this.setState({ numbers: numbers + number }, this.fetchPhonewords);
-  }
+  };
 
-  handleClear() {
+  handleClear = () => {
     this.setState({
       numbers: '',
       phonewords: [],
     });
-  }
+  };
 
   async fetchPhonewords() {
     const { numbers } = this.state;
