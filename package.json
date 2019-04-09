@@ -26,6 +26,7 @@
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@kiwicom/orbit-components": "^0.37.0",
     "aphrodite": "^2.2.3",
     "babel-eslint": "^10.0.1",

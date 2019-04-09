@@ -11,7 +11,7 @@ const propTypes = {
 function Input({ value, handleChange }) {
   return (
     <InputField
-      type="tel"
+      type="number"
       label="Number"
       placeholder="Number"
       value={value}
